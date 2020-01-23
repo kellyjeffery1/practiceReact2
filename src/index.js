@@ -2,11 +2,17 @@ import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
 const Statistics = ({good, neutral, bad}) => {
-
   const totalScore = good + neutral*0 - bad
   const totalNumberOfScore = good + neutral + bad
   const averageScore = totalScore / totalNumberOfScore
-
+  if ( totalNumberOfScore === 0 ) {
+    return (
+      <div>
+        <p>no feedback given</p>
+      </div>
+    )  
+  }
+   
   return (
     <div>
      <p>Total: {totalScore}</p>
